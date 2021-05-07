@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t alexander2belyaev/dockertest -f Dockerfile.dev .
+
+scripts:
+  - docker run alexander2belyaev/dockertest npm run test -- --coverage
+
